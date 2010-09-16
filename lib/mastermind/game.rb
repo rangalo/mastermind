@@ -8,5 +8,8 @@ module Mastermind
            @messenger.puts("Welcome to Mastermind!") 
            @messenger.puts("Enter guess:")
         end
+
+        def guess(code)
+        end
     end
 end

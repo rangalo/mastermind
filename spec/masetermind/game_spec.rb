@@ -20,7 +20,11 @@ module Mastermind
                 @messenger.should_receive(:puts).with("Welcome to Mastermind!")
                 @game.start(%w[r g y c])
             end
-
         end
-    end
+        context "submitting a guess" do
+            it "should have a guess method" do
+                @game.guess(%w[r y c g])
+            end
+        end
+ end
 end
