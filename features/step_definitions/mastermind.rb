@@ -23,3 +23,7 @@ When /^I guess (. . . .)$/ do |code|
       @game.guess(code.split)
 end
 
+Then /^the mark should be (.*)$/ do |mark|
+      @messenger.string.split("\n").should include(mark)
+end
+

@@ -7,11 +7,6 @@ module Mastermind
             @game = Game.new(@messenger)
         end
         context "starting up" do
-            it "should send a welcome message" do
-                @messenger.should_receive(:puts).with("Welcome to Mastermind!")
-                @game.start
-            end
-
             it "should prompt for the first guess" do
                 @messenger.should_receive(:puts).with("Enter guess:")
                 @game.start(%w[r g y c])
@@ -21,10 +16,25 @@ module Mastermind
                 @game.start(%w[r g y c])
             end
         end
-        context "submitting a guess" do
+        context "making a guess" do
             it "should have a guess method" do
+                @game.start(%w[r y c g])
                 @game.guess(%w[r y c g])
             end
+            context "with all 4 colors correct all in the correct place" do
+                it "should mark the guess with bbbb" do
+                    @game.start(%w[r g y c])
+                    @messenger.should_receive(:puts).with("bbbb")
+                    @game.guess(%w[r g y c])
+                end
+            end
+            context "with all 4 colors correct 2 in the correct place" do
+                it "should mark the guess with bbbb" do
+                    @game.start(%w[r g y c])
+                    @messenger.should_receive(:puts).with("bbww")
+                    @game.guess(%w[r g c y])
+                end
+            end
         end
- end
+      end
 end
