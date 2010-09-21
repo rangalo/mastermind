@@ -35,6 +35,13 @@ module Mastermind
                     @game.guess(%w[r g c y])
                 end
             end
-        end
+            context "with all 4 colors correct 1 in the correct place" do
+                it "should mark the guess with bbbb" do
+                    @game.start(%w[r g y c])
+                    @messenger.should_receive(:puts).with("wwwb")
+                    @game.guess(%w[y r g c])
+                end
+            end
+ end
       end
 end

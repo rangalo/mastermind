@@ -24,14 +24,14 @@ Feature: code-breaker submits guess
     Scenarios: 3 colors correct
         | code    | guess   | mark |
         | r g y c | w g y c | bbb  |
-        | r g y c | w g y c | bbw  |
-        | r g y c | w r g c | bww  |
+        | r g y c | w g y r | bbw  |
+        | r g y c | w g c y | bww  |
         | r g y c | w r g y | www  |
 
     Scenarios: 2 colors correct
         | code    | guess   | mark |
         | r g y c | w g w c | bb   |
-        | r g y c | w r w c | bw   |
+        | r g y c | w g w r | bw   |
         | r g y c | g w c w | ww   |
 
     Scenarios: 1 color correct
