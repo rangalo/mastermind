@@ -42,6 +42,6 @@ module Mastermind
                     @game.guess(%w[y r g c])
                 end
             end
- end
+         end
       end
 end
